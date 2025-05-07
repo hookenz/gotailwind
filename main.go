@@ -5,7 +5,7 @@ import (
 	"os"
 	"os/exec"
 
-	"golang.org/hookenz/gotailwind/downloader"
+	"golang.org/hookenz/gotailwind/v4/downloader"
 )
 
 func main() {
