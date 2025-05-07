@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	tailwindPath, err := downloader.EnsureTailwindInstalled()
+	tailwindPath, err := downloader.EnsureTailwindInstalled("v4.1.5")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed to install tailwind: %v\n", err)
 		os.Exit(1)

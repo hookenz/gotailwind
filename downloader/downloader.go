@@ -13,9 +13,9 @@ import (
 	"strings"
 )
 
-func EnsureTailwindInstalled() (string, error) {
+func EnsureTailwindInstalled(version string) (string, error) {
 	cacheDir, _ := os.UserCacheDir()
-	toolDir := filepath.Join(cacheDir, "gotailwind")
+	toolDir := filepath.Join(cacheDir, "gotailwind", version)
 
 	var binaryName string
 	switch runtime.GOOS + "-" + runtime.GOARCH {
@@ -55,7 +55,7 @@ func EnsureTailwindInstalled() (string, error) {
 	}
 	defer out.Close()
 
-	binaryURL := fmt.Sprintf("https://github.com/tailwindlabs/tailwindcss/releases/latest/download/%s", binaryName)
+	binaryURL := fmt.Sprintf("https://github.com/tailwindlabs/tailwindcss/releases/download/%s/%s", version, binaryName)
 	resp, err := http.Get(binaryURL)
 	if err != nil {
 		return "", err
