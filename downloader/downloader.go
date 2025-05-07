@@ -37,8 +37,7 @@ func EnsureTailwindInstalled(version string) (string, error) {
 	if _, err := os.Stat(binPath); err == nil {
 		return binPath, nil
 	}
-
-	sumURL := "https://github.com/tailwindlabs/tailwindcss/releases/latest/download/sha256sums.txt"
+	sumURL := fmt.Sprintf("https://github.com/tailwindlabs/tailwindcss/releases/download/%s/sha256sums.txt", version)
 	expectedSum, err := getExpectedSHA256(sumURL, binaryName)
 	if err != nil {
 		return "", fmt.Errorf("failed to fetch expected hash: %w", err)
