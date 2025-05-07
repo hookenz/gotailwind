@@ -3,6 +3,8 @@ A wrapper for tailwindcss in order to use tailwindcss as a go tool
 
 I created this tool to make it easier to use tailwind with golang projects.
 
+It basically downloads the tailwindcss cli standalone binary.  Nodejs is not required.
+
 Usage:
    github.com/hookenz/gotailwind/v4@v4.1.4
 
