@@ -7,15 +7,22 @@ using the go [templ](https://templ.guide/) template engine
 It basically downloads the tailwindcss cli standalone binary.  Nodejs is not required.
 
 Usage:
-    # Install the latest version of tailwindcss 4
-    go get -tool github.com/hookenz/gotailwind/v4@latest
 
-    # Or a specific version of tailwindcss
-    go get github.com/hookenz/gotailwind/v4@v4.1.5
+To install the latest version of tailwindcss 4:
+```
+go get -tool github.com/hookenz/gotailwind/v4@latest
+```
+
+Or a specific version of tailwindcss:
+```
+go get github.com/hookenz/gotailwind/v4@v4.1.5
+```
 
 
 To run it:
-    `go tool gotailwind`
+```
+go tool gotailwind
+```
 
 # Contributing
 Suggestions or improvements welcome.
@@ -24,7 +31,10 @@ Suggestions or improvements welcome.
 Unfortunately I made a mistake with version 4.1.4 and 4.1.5 and I can't fix it until a 
 new version of tailwindcss is released.  But there is a workaround.
 
-  i.e. `GOSUMDB=off GOPROXY=direct go get github.com/hookenz/gotailwind/v4@v4.1.5`
+i.e. 
+```
+GOSUMDB=off GOPROXY=direct go get github.com/hookenz/gotailwind/v4@v4.1.5
+```
 
 Unfortunately the public go module cache will forever hold these broken versions.
 Later versions won't have this problem.
