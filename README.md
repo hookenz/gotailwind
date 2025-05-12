@@ -31,8 +31,15 @@ The tagged version corresponds to the tailwindcss binary.
 It has been tested under Linux.  It should work under mac and windows although I haven't tested it.
 
 The version downloaded by this tool match the tailwindcss binary.
-In linux they are placed into the versioned directories beneath `~/.cache/gotailwind/`
-i.e.  `~/.cache/gotailwind/v4.1.6/tailwindcss-linux-x64`
+In linux they are placed into the versioned directories beneath
+```
+~/.cache/gotailwind/
+```
+
+i.e.  
+```
+~/.cache/gotailwind/v4.1.6/tailwindcss-linux-x64
+```
 
 # Contributing
 Suggestions or improvements welcome.
