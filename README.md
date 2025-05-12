@@ -15,33 +15,27 @@ go get -tool github.com/hookenz/gotailwind/v4@latest
 
 Or a specific version of tailwindcss:
 ```
-go get github.com/hookenz/gotailwind/v4@v4.1.5
+go get github.com/hookenz/gotailwind/v4@v4.1.6
 ```
-
-
 To run it:
 ```
 go tool gotailwind
 ```
 
-# Contributing
-Suggestions or improvements welcome.
+# How does it work? 
+This tool is a thin go wrapper around the standalone tailwindcss binary.  It's just a go program that calls the appropriate tailwindcss 
+binary that is downloaded and cached into a special folder.
 
-# Notes: 
-Unfortunately I made a mistake with version 4.1.4 and 4.1.5 and I can't fix it until a 
-new version of tailwindcss is released.  But there is a workaround.
+The tagged version corresponds to the tailwindcss binary.
 
-i.e. 
-```
-GOSUMDB=off GOPROXY=direct go get github.com/hookenz/gotailwind/v4@v4.1.5
-```
-
-Unfortunately the public go module cache will forever hold these broken versions.
-Later versions won't have this problem.
+It has been tested under Linux.  It should work under mac and windows although I haven't tested it.
 
 The version downloaded by this tool match the tailwindcss binary.
 In linux they are placed into the versioned directories beneath ~/.cache/gotailwind/`v4.1.5/tailwindcss-linux-x64
-e.g.  ~/.cache/gotailwind/v4.1.5/tailwindcss-linux-x64
+i.e.  ~/.cache/gotailwind/v4.1.6/tailwindcss-linux-x64
+
+# Contributing
+Suggestions or improvements welcome.
 
 
 
