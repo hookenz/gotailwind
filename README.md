@@ -19,7 +19,7 @@ go get -tool github.com/hookenz/gotailwind/v4@latest
 
 Or a specific version of tailwindcss:
 ```
-go get github.com/hookenz/gotailwind/v4@v4.1.6
+go get -tool github.com/hookenz/gotailwind/v4@v4.1.7
 ```
 To run it:
 ```
@@ -32,7 +32,7 @@ binary that is downloaded and cached into a special folder.
 
 The tagged version corresponds to the tailwindcss binary.
 
-It has been tested under Linux.  It should work under mac and windows although I haven't tested it.
+It has been tested under Linux and Windows. It should work under mac although I haven't tested it.
 
 The version downloaded by this tool match the tailwindcss binary.
 In linux they are placed into the versioned directories beneath
@@ -42,7 +42,7 @@ In linux they are placed into the versioned directories beneath
 
 i.e.  
 ```
-~/.cache/gotailwind/v4.1.6/tailwindcss-linux-x64
+~/.cache/gotailwind/v4.1.7/tailwindcss-linux-x64
 ```
 
 # Contributing

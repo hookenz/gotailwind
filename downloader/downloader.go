@@ -81,7 +81,7 @@ func EnsureTailwindInstalled(version string) (string, error) {
 	if actualSum != expectedSum {
 		return "", fmt.Errorf("hash mismatch: expected %s, got %s", expectedSum, actualSum)
 	}
-	out.Close() // close before Chmod and Rename (Windows doesn't renaming opened file).
+	out.Close() // close before Chmod and Rename (Windows doesn't allow renaming opened file).
 
 	if err := os.Chmod(tmpFile, 0755); err != nil {
 		return "", err
