@@ -14,7 +14,11 @@ import (
 )
 
 func EnsureTailwindInstalled(version string) (string, error) {
-	cacheDir, _ := os.UserCacheDir()
+	cacheDir, err := os.UserCacheDir()
+	if err != nil {
+		return "", err
+	}
+
 	toolDir := filepath.Join(cacheDir, "gotailwind", version)
 
 	var binaryName string
@@ -81,10 +85,12 @@ func EnsureTailwindInstalled(version string) (string, error) {
 	if actualSum != expectedSum {
 		return "", fmt.Errorf("hash mismatch: expected %s, got %s", expectedSum, actualSum)
 	}
+	out.Close() // Close the file before renaming (windows filesystem)
 
 	if err := os.Chmod(tmpFile, 0755); err != nil {
 		return "", err
 	}
+
 	if err := os.Rename(tmpFile, binPath); err != nil {
 		return "", err
 	}

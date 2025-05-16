@@ -3,7 +3,7 @@ A wrapper for the excellent [TailwindCSS](https://tailwindcss.com/) cli binary t
 
 https://github.com/user-attachments/assets/f540a315-a70b-49f0-843a-f35e7520d5d5
 
-I created this tool to make it easier to use tailwind within golang projects such as with those 
+I created this tool to make it easier to use tailwindcss within golang projects such as with those 
 using the go [templ](https://templ.guide/) template engine.
 
 It basically downloads the tailwindcss cli standalone binary.  Nodejs is not required.
@@ -19,7 +19,7 @@ go get -tool github.com/hookenz/gotailwind/v4@latest
 
 Or a specific version of tailwindcss:
 ```
-go get github.com/hookenz/gotailwind/v4@v4.1.6
+go get github.com/hookenz/gotailwind/v4@v4.1.7
 ```
 To run it:
 ```
