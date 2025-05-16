@@ -1,7 +1,6 @@
 # GoTailwind
 A wrapper for the excellent [TailwindCSS](https://tailwindcss.com/) cli binary to facilitate it's use with golang as a go tool plugin.
 
-# Latest release
 [![latest version](https://img.shields.io/github/v/tag/hookenz/gotailwind?color=%2344cc11&label=Latest%20release&style=for-the-badge)](https://github.com/hookenz/gotailwind/releases/latest)
 
 https://github.com/user-attachments/assets/f540a315-a70b-49f0-843a-f35e7520d5d5
