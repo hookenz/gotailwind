@@ -14,7 +14,11 @@ import (
 )
 
 func EnsureTailwindInstalled(version string) (string, error) {
-	cacheDir, _ := os.UserCacheDir()
+	cacheDir, err := os.UserCacheDir()
+	if err != nil {
+		return "", err
+	}
+
 	toolDir := filepath.Join(cacheDir, "gotailwind", version)
 
 	var binaryName string
@@ -86,6 +90,7 @@ func EnsureTailwindInstalled(version string) (string, error) {
 	if err := os.Chmod(tmpFile, 0755); err != nil {
 		return "", err
 	}
+
 	if err := os.Rename(tmpFile, binPath); err != nil {
 		return "", err
 	}
