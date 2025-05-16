@@ -10,6 +10,11 @@ It basically downloads the tailwindcss cli standalone binary.  Nodejs is not req
 
 Note: requires go 1.24+
 
+# Current version
+This app is updated regularly.  It shouldn't be far behind the latest release of tailwindcss.  Automation is on the way.
+
+[![latest version](https://img.shields.io/github/v/release/hookenz/gotailwind?color=%2344cc11&label=Latest%20release&style=for-the-badge)](https://github.com/hookenz/gotailwind/releases/latest)
+
 # Usage
 
 To install the latest version of tailwindcss 4:
