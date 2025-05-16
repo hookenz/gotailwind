@@ -1,5 +1,5 @@
 # GoTailwind
-A wrapper for the excellent [TailwindCSS](https://tailwindcss.com/) cli binary to facilitate it's use with golang as a go tool plugin.
+A wrapper for the excellent [TailwindCSS](https://tailwindcss.com/) cli to facilitate it's use with golang projects as a `go tool` plugin.
 
 [![latest version](https://img.shields.io/github/v/tag/hookenz/gotailwind?color=%2344cc11&label=Latest%20release&style=for-the-badge)](https://github.com/hookenz/gotailwind/releases/latest)
 
@@ -7,12 +7,11 @@ https://github.com/user-attachments/assets/f540a315-a70b-49f0-843a-f35e7520d5d5
 
 # About
 
-I created this tool to make it easier to use tailwindcss within golang projects such as with those 
-using the go [templ](https://templ.guide/) template engine.
+I created this tool to make it easier to use tailwindcss within golang projects such as with those using the go [templ](https://templ.guide/) template engine or html/template etc.
 
-It basically downloads the tailwindcss cli standalone binary.  Nodejs is not required.
+It downloads the tailwindcss cli standalone binary automatically on first use.  Nodejs is not required.
 
-Note: requires go 1.24+
+Note: this requires go 1.24+.  Upgrade to go 1.24 or newer before using this tool.
 
 # Usage
 
@@ -31,14 +30,14 @@ go tool gotailwind
 ```
 
 # How does it work? 
-This tool is a thin go wrapper around the standalone tailwindcss binary.  It's just a go program that calls the appropriate tailwindcss 
-binary that is downloaded and cached into a special folder.
+This tool is a thin go wrapper around the standalone tailwindcss cli.  It's just a go program that calls the appropriate tailwindcss 
+binary that is downloaded and cached into a local cache folder.
 
-The tagged version corresponds to the tailwindcss binary.
+The tagged version corresponds to the version tailwindcss cli.
 
-It has been tested under Linux and Windows. It should work under mac although I haven't tested it.
+It has been tested under Linux and Windows. It should also work under mac although is currently untested. Do let me know if it works or not.
 
-The version downloaded by this tool match the tailwindcss binary.
+The version downloaded by this tool should match the tailwindcss cli.
 In linux they are placed into the versioned directories beneath
 ```
 ~/.cache/gotailwind/
@@ -49,8 +48,9 @@ i.e.
 ~/.cache/gotailwind/v4.1.7/tailwindcss-linux-x64
 ```
 
+Which means you can have different projects targetting different versions of tailwind.
+
+Note: Versions of this tool prior to 4.1.6 do not work properly due to bug and broken go cache.  
+
 # Contributing
-Suggestions or improvements welcome.
-
-
-
+Suggestions or improvements are more than welcome.
