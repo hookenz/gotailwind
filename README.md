@@ -1,7 +1,12 @@
 # GoTailwind
 A wrapper for the excellent [TailwindCSS](https://tailwindcss.com/) cli binary to facilitate it's use with golang as a go tool plugin.
 
+# Latest release
+[![latest version](https://img.shields.io/github/v/tag/hookenz/gotailwind?color=%2344cc11&label=Latest%20release&style=for-the-badge)](https://github.com/hookenz/gotailwind/releases/latest)
+
 https://github.com/user-attachments/assets/f540a315-a70b-49f0-843a-f35e7520d5d5
+
+# About
 
 I created this tool to make it easier to use tailwindcss within golang projects such as with those 
 using the go [templ](https://templ.guide/) template engine.
@@ -9,11 +14,6 @@ using the go [templ](https://templ.guide/) template engine.
 It basically downloads the tailwindcss cli standalone binary.  Nodejs is not required.
 
 Note: requires go 1.24+
-
-# Current version
-This app is updated regularly.  It shouldn't be far behind the latest release of tailwindcss.  Automation is on the way.
-
-[![latest version](https://img.shields.io/github/v/release/hookenz/gotailwind?color=%2344cc11&label=Latest%20release&style=for-the-badge)](https://github.com/hookenz/gotailwind/releases/latest)
 
 # Usage
 
