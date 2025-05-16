@@ -1,7 +1,8 @@
-# GoTailwind
-A `go tool` plugin for the excellent [TailwindCSS](https://tailwindcss.com/) cli.
+# GoTailwind   [![latest version](https://img.shields.io/github/v/tag/hookenz/gotailwind?color=%2344cc11&label=Latest%20release&style=for-the-badge)](https://github.com/hookenz/gotailwind/releases/latest)
 
-[![latest version](https://img.shields.io/github/v/tag/hookenz/gotailwind?color=%2344cc11&label=Latest%20release&style=for-the-badge)](https://github.com/hookenz/gotailwind/releases/latest)
+A `go tool` plugin for the excellent [TailwindCSS](https://tailwindcss.com/) cli.  
+
+<br>
 
 https://github.com/user-attachments/assets/f540a315-a70b-49f0-843a-f35e7520d5d5
 
