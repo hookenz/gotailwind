@@ -2,10 +2,6 @@
 
 A `go tool` plugin for the excellent [TailwindCSS](https://tailwindcss.com/) cli.  
 
-<br>
-
-https://github.com/user-attachments/assets/f540a315-a70b-49f0-843a-f35e7520d5d5
-
 # About
 
 I created this tool to make it easier to use TailwindCSS within go projects such as with those using the go [templ](https://templ.guide/) template engine or html/template etc.
@@ -13,6 +9,10 @@ I created this tool to make it easier to use TailwindCSS within go projects such
 It downloads the TailwindCSS cli standalone binary automatically on first use.  Subsequent invocations will use the cached copy.  Nodejs is not required.
 
 Note: this requires go 1.24+.  You must upgrade to go 1.24 or newer before using this tool.
+
+# Demo
+
+https://github.com/user-attachments/assets/f540a315-a70b-49f0-843a-f35e7520d5d5
 
 # Usage
 
