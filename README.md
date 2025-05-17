@@ -8,15 +8,14 @@ I created this tool to make it easier to use TailwindCSS within go projects such
 
 It downloads the TailwindCSS cli standalone binary automatically on first use.  Subsequent invocations will use the cached copy.  Nodejs is not required.
 
-Note: this requires go 1.24+.  You must upgrade to go 1.24 or newer before using this tool.
+# Prerequisites
+Go 1.24+.  You must upgrade to go 1.24 or newer before using this tool.
 
-# Demo
-
-https://github.com/user-attachments/assets/f540a315-a70b-49f0-843a-f35e7520d5d5
+Please verify with `go version` that the version you have is at least 1.24 or it won't work.
 
 # Usage
 
-To install the latest version of TailwindCSS v4:
+To install the latest version of TailwindCSS v4 into an existing go project:
 ```
 go get -tool github.com/hookenz/gotailwind/v4@latest
 ```
@@ -30,6 +29,11 @@ To run it:
 ```
 go tool gotailwind
 ```
+
+# Demo
+
+https://github.com/user-attachments/assets/f540a315-a70b-49f0-843a-f35e7520d5d5
+
 
 # How does it work? 
 GoTailwind is a thin go wrapper around the standalone TailwindCSS cli.  It's just a go program that calls the appropriate TailwindCSS 
