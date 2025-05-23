@@ -1,0 +1,62 @@
+name: "🚀 Enhancement Request"
+description: Suggest an idea or improvement for gotailwind
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest an improvement to **gotailwind**! Please fill out the details below to help us evaluate your enhancement.
+
+  - type: input
+    id: title
+    attributes:
+      label: Enhancement Title
+      description: A concise title for your enhancement.
+      placeholder: "Add support for custom Tailwind config path"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What's the problem or limitation?
+      description: |
+        Clearly describe the problem your enhancement is trying to solve. 
+        What limitations or challenges are you facing without it?
+      placeholder: |
+        Currently, gotailwind assumes a fixed path for tailwind.config.js, which limits flexibility for multi-theme or unconventional project setups.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: |
+        How would you like to see this implemented? Describe the behavior, CLI flags, or internal changes you’re suggesting.
+      placeholder: |
+        Add a `--config` CLI flag that allows passing a custom config path, and forward it to the Tailwind CLI process.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: |
+        Have you considered other ways to solve this? Why did you choose this approach?
+      placeholder: |
+        I tried symlinking config files, but this doesn't scale well for larger projects or CI environments.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: |
+        Add any other context, screenshots, or examples here that help explain the enhancement.
+      placeholder: |
+        This would match Tailwind's own CLI support for `--config` and improve parity between tools.
+    validations:
+      required: false
