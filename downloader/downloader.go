@@ -29,6 +29,13 @@ func EnsureTailwindInstalled(version string) (string, error) {
 		binaryName = "tailwindcss-macos-x64"
 	case "linux-arm64":
 		binaryName = "tailwindcss-linux-arm64"
+		if _, err := os.Stat("/etc/os-release"); err == nil {
+			if data, err := os.ReadFile("/etc/os-release"); err == nil {
+				if strings.Contains(string(data), "ID=alpine") {
+					binaryName += "-musl"
+				}
+			}
+		}
 	case "linux-amd64":
 		binaryName = "tailwindcss-linux-x64"
 		if _, err := os.Stat("/etc/os-release"); err == nil {
