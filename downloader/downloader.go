@@ -3,6 +3,7 @@ package downloader
 import (
 	"bufio"
 	"crypto/sha256"
+	"debug/elf"
 	"encoding/hex"
 	"fmt"
 	"io"
@@ -29,21 +30,17 @@ func EnsureTailwindInstalled(version string) (string, error) {
 		binaryName = "tailwindcss-macos-x64"
 	case "linux-arm64":
 		binaryName = "tailwindcss-linux-arm64"
-		if _, err := os.Stat("/etc/os-release"); err == nil {
-			if data, err := os.ReadFile("/etc/os-release"); err == nil {
-				if strings.Contains(string(data), "ID=alpine") {
-					binaryName += "-musl"
-				}
-			}
+		if isMusl, _, err := isMusl("/bin/ls"); err != nil {
+			return "", fmt.Errorf("failed to check if binary is musl: %w", err)
+		} else if isMusl {
+			binaryName += "-musl"
 		}
 	case "linux-amd64":
 		binaryName = "tailwindcss-linux-x64"
-		if _, err := os.Stat("/etc/os-release"); err == nil {
-			if data, err := os.ReadFile("/etc/os-release"); err == nil {
-				if strings.Contains(string(data), "ID=alpine") {
-					binaryName += "-musl"
-				}
-			}
+		if isMusl, _, err := isMusl("/bin/ls"); err != nil {
+			return "", fmt.Errorf("failed to check if binary is musl: %w", err)
+		} else if isMusl {
+			binaryName += "-musl"
 		}
 	case "windows-amd64":
 		binaryName = "tailwindcss-windows-x64.exe"
@@ -110,6 +107,32 @@ func EnsureTailwindInstalled(version string) (string, error) {
 	}
 
 	return binPath, nil
+}
+
+func isMusl(path string) (bool, string, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return false, "", err
+	}
+	defer f.Close()
+
+	ef, err := elf.NewFile(f)
+	if err != nil {
+		return false, "", err
+	}
+
+	for _, prog := range ef.Progs {
+		if prog.Type == elf.PT_INTERP {
+			data := make([]byte, prog.Filesz)
+			_, err := prog.ReadAt(data, 0)
+			if err != nil {
+				return false, "", err
+			}
+			interp := strings.TrimRight(string(data), "\x00")
+			return strings.Contains(interp, "musl"), interp, nil
+		}
+	}
+	return false, "", nil
 }
 
 func getExpectedSHA256(sumURL, binaryName string) (string, error) {
