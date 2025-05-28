@@ -24,12 +24,11 @@ func EnsureTailwindInstalled(version string) (string, error) {
 	toolDir := filepath.Join(cacheDir, "gotailwind", version)
 
 	var musl = ""
-	if runtime.GOOS == "linux" {
-		if isMusl, err := isMusl(); err != nil {
-			log.Printf("failed to determine if env utilizes musl libc: %v", err)
-		} else if isMusl {
-			musl = "-musl"
-		}
+	isMusl, err := isMusl()
+	if err != nil {
+		log.Printf("failed to determine if environment uses musl libc: %v", err)
+	} else if isMusl {
+		musl = "-musl"
 	}
 
 	var binaryName string
@@ -114,6 +113,10 @@ func EnsureTailwindInstalled(version string) (string, error) {
 }
 
 func isMusl() (bool, error) {
+	if runtime.GOOS == "linux" {
+		return false, nil
+	}
+
 	f, err := os.Open("/bin/ls")
 	if err != nil {
 		return false, err
