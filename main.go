@@ -8,7 +8,7 @@ import (
 	"github.com/hookenz/gotailwind/v4/downloader"
 )
 
-const TaildwindCssVersion = "v4.1.7"
+const TaildwindCssVersion = "v4.1.8"
 
 func main() {
 	tailwindPath, err := downloader.EnsureTailwindInstalled(TaildwindCssVersion)
