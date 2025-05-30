@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-950 text-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gotailwind</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta name="color-scheme" content="dark" />
+  </head>
+  <body class="font-sans antialiased">
+    <header class="p-8 text-center border-b border-gray-800">
+      <h1 class="text-5xl font-bold text-indigo-400">gotailwind</h1>
+      <p class="text-gray-400 mt-3 text-lg">
+        Run Tailwind CSS in Go projects without installing Node
+      </p>
+      <div class="mt-4">
+        <code class="bg-gray-800 text-indigo-300 px-3 py-1 rounded text-sm inline-block">
+          go get -tool github.com/hookenz/gotailwind
+        </code>
+      </div>
+      <nav class="mt-6 space-x-6">
+        <a href="https://github.com/hookenz/gotailwind" class="text-indigo-300 hover:underline">GitHub</a>
+        <a href="usage.html" class="text-indigo-300 hover:underline">Usage</a>
+      </nav>
+    </header>
+
+    <main class="max-w-3xl mx-auto py-14 px-6">
+      <section class="mb-12">
+        <h2 class="text-2xl font-semibold mb-4 text-indigo-300">Why gotailwind?</h2>
+        <ul class="list-disc ml-6 space-y-2 text-gray-300">
+          <li>No need to install Node or Tailwind CLI manually</li>
+          <li>Automatically downloads the correct Tailwind binary</li>
+          <li>Supports standard Tailwind CSS features and directives</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 text-indigo-300">Quick Start</h2>
+        <p class="mb-4 text-gray-300">Create an <code class="bg-gray-800 px-1 rounded">input.css</code> file with the following content:</p>
+        <pre class="bg-gray-900 text-gray-200 p-4 rounded-lg text-sm overflow-x-auto whitespace-pre-wrap mb-6">
+@import "tailwindcss";
+        </pre>
+
+        <p class="mb-2 text-gray-300">Then run the CLI tool to generate your CSS output:</p>
+        <pre class="bg-gray-900 text-gray-200 p-4 rounded-lg text-sm overflow-x-auto">
+go tool gotailwind --input input.css --output output.css
+        </pre>
+
+        <p class="mt-6 text-gray-400">
+          See the <a href="usage.html" class="text-indigo-300 hover:underline">Usage</a> page for full documentation.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-950 text-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>gotailwind – Usage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="color-scheme" content="dark" />
+  </head>
+  <body class="font-sans antialiased">
+    <header class="p-8 text-center border-b border-gray-800">
+      <h1 class="text-4xl font-bold text-indigo-400">gotailwind</h1>
+      <p class="text-gray-400 mt-2 text-lg">Usage Guide</p>
+      <nav class="mt-4">
+        <a href="index.html" class="text-indigo-300 hover:underline">← Back to Home</a>
+      </nav>
+    </header>
+
+    <main class="max-w-3xl mx-auto py-14 px-6">
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold mb-4 text-indigo-300">Step 1: Create input.css</h2>
+        <pre class="bg-gray-900 text-gray-200 p-4 rounded-lg text-sm overflow-x-auto whitespace-pre-wrap">
+@import "tailwindcss";
+        </pre>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-2xl font-semibold mb-4 text-indigo-300">Step 2: Run gotailwind CLI</h2>
+        <pre class="bg-gray-900 text-gray-200 p-4 rounded-lg text-sm overflow-x-auto">
+go tool gotailwind --input input.css --output output.css
+        </pre>
+      </section>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 text-indigo-300">Notes</h2>
+        <ul class="list-disc ml-6 space-y-2 text-gray-300">
+          <li>No need to install Node.js or Tailwind CLI separately</li>
+          <li>Automatically downloads and uses the correct Tailwind binary</li>
+          <li>Supports standard Tailwind CSS features and directives</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
