@@ -113,7 +113,7 @@ func EnsureTailwindInstalled(version string) (string, error) {
 }
 
 func isMusl() (bool, error) {
-	if runtime.GOOS == "linux" {
+	if runtime.GOOS != "linux" {
 		return false, nil
 	}
 
