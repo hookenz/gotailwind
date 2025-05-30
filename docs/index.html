@@ -1,55 +1,126 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-gray-950 text-gray-100">
+<html lang="en" class="bg-zinc-950 text-zinc-100">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>gotailwind</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>gotailwind – Home</title>
     <meta name="color-scheme" content="dark" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --brand-color: #38bdf8;
+      }
+    </style>
   </head>
   <body class="font-sans antialiased">
-    <header class="p-8 text-center border-b border-gray-800">
-      <h1 class="text-5xl font-bold text-indigo-400">gotailwind</h1>
-      <p class="text-gray-400 mt-3 text-lg">
-        Run Tailwind CSS in Go projects without installing Node
+    <header class="p-8 text-center border-b border-zinc-800">
+      <h1 class="text-4xl font-extrabold" style="color: var(--brand-color)">gotailwind</h1>
+      <p class="text-zinc-400 mt-2 text-lg">
+        A small Go tool that makes Tailwind CSS easier to use in Go projects.
       </p>
-      <div class="mt-4">
-        <code class="bg-gray-800 text-indigo-300 px-3 py-1 rounded text-sm inline-block">
-          go get -tool github.com/hookenz/gotailwind
-        </code>
-      </div>
-      <nav class="mt-6 space-x-6">
-        <a href="https://github.com/hookenz/gotailwind" class="text-indigo-300 hover:underline">GitHub</a>
-        <a href="usage.html" class="text-indigo-300 hover:underline">Usage</a>
-      </nav>
     </header>
 
-    <main class="max-w-3xl mx-auto py-14 px-6">
-      <section class="mb-12">
-        <h2 class="text-2xl font-semibold mb-4 text-indigo-300">Why gotailwind?</h2>
-        <ul class="list-disc ml-6 space-y-2 text-gray-300">
-          <li>No need to install Node or Tailwind CLI manually</li>
-          <li>Automatically downloads the correct Tailwind binary</li>
-          <li>Supports standard Tailwind CSS features and directives</li>
+    <main class="max-w-3xl mx-auto py-16 px-6 space-y-16">
+      <!-- Quickstart -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 text-sky-400">Quickstart</h2>
+        <ol class="list-decimal ml-6 space-y-4 text-zinc-300">
+          <li>
+            Install via Go:
+            <div class="relative group mt-2">
+              <pre id="install" class="bg-zinc-900 p-4 rounded-lg text-sm overflow-x-auto border border-zinc-800">go install github.com/hookenz/gotailwind@latest</pre>
+              <button
+                onclick="copyCode('install', this)"
+                class="absolute top-2 right-2 bg-zinc-800 text-zinc-300 text-xs px-2 py-1 rounded hover:bg-zinc-700 focus:outline-none focus:ring"
+              >
+                Copy
+              </button>
+            </div>
+          </li>
+          <li>
+            Create a file named <code>input.css</code> with the following contents:
+            <div class="relative group mt-2">
+              <pre id="inputcss" class="bg-zinc-900 p-4 rounded-lg text-sm overflow-x-auto border border-zinc-800">@import "tailwindcss";</pre>
+              <button
+                onclick="copyCode('inputcss', this)"
+                class="absolute top-2 right-2 bg-zinc-800 text-zinc-300 text-xs px-2 py-1 rounded hover:bg-zinc-700 focus:outline-none focus:ring"
+              >
+                Copy
+              </button>
+            </div>
+          </li>
+          <li>
+            Run the CLI:
+            <div class="relative group mt-2">
+              <pre id="runcli" class="bg-zinc-900 p-4 rounded-lg text-sm overflow-x-auto border border-zinc-800">go tool gotailwind --input input.css --output output.css</pre>
+              <button
+                onclick="copyCode('runcli', this)"
+                class="absolute top-2 right-2 bg-zinc-800 text-zinc-300 text-xs px-2 py-1 rounded hover:bg-zinc-700 focus:outline-none focus:ring"
+              >
+                Copy
+              </button>
+            </div>
+          </li>
+          <li>
+            Include the output in your site:
+            <div class="relative group mt-2">
+              <pre id="linkcss" class="bg-zinc-900 p-4 rounded-lg text-sm overflow-x-auto border border-zinc-800">&lt;link rel="stylesheet" href="output.css"&gt;</pre>
+              <button
+                onclick="copyCode('linkcss', this)"
+                class="absolute top-2 right-2 bg-zinc-800 text-zinc-300 text-xs px-2 py-1 rounded hover:bg-zinc-700 focus:outline-none focus:ring"
+              >
+                Copy
+              </button>
+            </div>
+          </li>
+        </ol>
+        <p class="mt-4 text-zinc-400">
+          See the full <a href="usage.html" class="text-sky-400 hover:text-sky-300 underline underline-offset-2">usage guide</a>.
+        </p>
+      </section>
+
+      <!-- Benefits -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 text-sky-400">Why use gotailwind?</h2>
+        <ul class="list-disc ml-6 space-y-2 text-zinc-300">
+          <li>No need to install Node.js or npm</li>
+          <li>Uses official Tailwind CSS binary</li>
+          <li>Works well in Go development workflows</li>
+          <li>Perfect for lightweight setups and container builds</li>
+          <li>Supports Tailwind CSS v4+ features</li>
         </ul>
       </section>
 
+      <!-- Plugin Support -->
       <section>
-        <h2 class="text-2xl font-semibold mb-4 text-indigo-300">Quick Start</h2>
-        <p class="mb-4 text-gray-300">Create an <code class="bg-gray-800 px-1 rounded">input.css</code> file with the following content:</p>
-        <pre class="bg-gray-900 text-gray-200 p-4 rounded-lg text-sm overflow-x-auto whitespace-pre-wrap mb-6">
-@import "tailwindcss";
-        </pre>
-
-        <p class="mb-2 text-gray-300">Then run the CLI tool to generate your CSS output:</p>
-        <pre class="bg-gray-900 text-gray-200 p-4 rounded-lg text-sm overflow-x-auto">
-go tool gotailwind --input input.css --output output.css
-        </pre>
-
-        <p class="mt-6 text-gray-400">
-          See the <a href="usage.html" class="text-indigo-300 hover:underline">Usage</a> page for full documentation.
+        <h2 class="text-2xl font-semibold mb-4 text-sky-400">Plugin Support</h2>
+        <p class="text-zinc-300 mb-2">
+          Plugins like
+          <a
+            href="https://daisyui.com/docs/install/standalone/"
+            class="text-sky-400 hover:text-sky-300 underline underline-offset-2"
+            >daisyUI</a
+          >
+          can be added by downloading them manually.
+        </p>
+        <p class="text-zinc-400">
+          We’re exploring automatic plugin support in a future release.
         </p>
       </section>
     </main>
+
+    <footer class="mt-20 pb-10 text-center text-zinc-500 text-sm">
+      © 2025 gotailwind. All rights reserved.
+    </footer>
+
+    <script>
+      function copyCode(id, button) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          button.textContent = 'Copied!';
+          setTimeout(() => (button.textContent = 'Copy'), 2000);
+        });
+      }
+    </script>
   </body>
 </html>

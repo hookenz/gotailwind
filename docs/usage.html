@@ -1,63 +1,113 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-gray-950 text-gray-100">
+<html lang="en" class="bg-zinc-950 text-zinc-100">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>gotailwind – Usage</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <meta name="color-scheme" content="dark" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --brand-color: #38bdf8;
+      }
+    </style>
   </head>
   <body class="font-sans antialiased">
-    <header class="p-8 text-center border-b border-gray-800">
-      <h1 class="text-4xl font-bold text-indigo-400">gotailwind</h1>
-      <p class="text-gray-400 mt-2 text-lg">Usage Guide</p>
+    <header class="p-8 text-center border-b border-zinc-800">
+      <h1 class="text-4xl font-extrabold" style="color: var(--brand-color)">gotailwind</h1>
+      <p class="text-zinc-400 mt-2 text-lg">Usage Guide</p>
       <nav class="mt-4">
-        <a href="index.html" class="text-indigo-300 hover:underline">← Back to Home</a>
+        <a
+          href="index.html"
+          class="text-sky-400 hover:text-sky-300 transition underline underline-offset-2"
+        >← Back to Home</a>
       </nav>
     </header>
 
-    <main class="max-w-3xl mx-auto py-14 px-6">
-      <section class="mb-10">
-        <h2 class="text-2xl font-semibold mb-4 text-indigo-300">Step 1: Create input.css</h2>
-        <pre class="bg-gray-900 text-gray-200 p-4 rounded-lg text-sm overflow-x-auto whitespace-pre-wrap">
-@import "tailwindcss";
-        </pre>
-      </section>
-
-      <section class="mb-10">
-        <h2 class="text-2xl font-semibold mb-4 text-indigo-300">Step 2: Run gotailwind CLI</h2>
-        <pre class="bg-gray-900 text-gray-200 p-4 rounded-lg text-sm overflow-x-auto">
-go tool gotailwind --input input.css --output output.css
-        </pre>
-      </section>
-
-      <section class="mb-10">
-        <h2 class="text-2xl font-semibold mb-4 text-indigo-300">Step 3: Import output.css in your HTML</h2>
-        <p class="text-gray-300 mb-2">Use the generated CSS in your project like this:</p>
-        <pre class="bg-gray-900 text-gray-200 p-4 rounded-lg text-sm overflow-x-auto">
-&lt;link rel="stylesheet" href="output.css"&gt;
-        </pre>
-      </section>
-
-      <section class="mb-10">
-        <h2 class="text-2xl font-semibold mb-4 text-indigo-300">Plugin Support</h2>
-        <p class="text-gray-300 mb-4">
-          Tailwind plugins like <a href="https://daisyui.com/docs/install/standalone/" class="text-indigo-300 underline">daisyUI</a> can be used with gotailwind,
-          but they currently require manual download and import.
-        </p>
-        <p class="text-gray-400">
-          We’re exploring a future feature to support plugins automatically.
-        </p>
-      </section>
-
+    <main class="max-w-3xl mx-auto py-14 px-6 space-y-16">
+      <!-- Usage Step 1 -->
       <section>
-        <h2 class="text-2xl font-semibold mb-4 text-indigo-300">Notes</h2>
-        <ul class="list-disc ml-6 space-y-2 text-gray-300">
+        <h2 class="text-2xl font-semibold mb-4 text-sky-400">Step 1: Create input.css</h2>
+        <div class="relative group">
+          <pre id="code1" class="bg-zinc-900 text-zinc-200 p-4 rounded-lg text-sm overflow-x-auto whitespace-pre-wrap border border-zinc-800">@import "tailwindcss";</pre>
+          <button
+            onclick="copyCode('code1', this)"
+            class="absolute top-2 right-2 bg-zinc-800 text-zinc-300 text-xs px-2 py-1 rounded hover:bg-zinc-700 focus:outline-none focus:ring"
+          >
+            Copy
+          </button>
+        </div>
+      </section>
+
+      <!-- Usage Step 2 -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 text-sky-400">Step 2: Run gotailwind CLI</h2>
+        <div class="relative group">
+          <pre id="code2" class="bg-zinc-900 text-zinc-200 p-4 rounded-lg text-sm overflow-x-auto border border-zinc-800">go tool gotailwind --input input.css --output output.css</pre>
+          <button
+            onclick="copyCode('code2', this)"
+            class="absolute top-2 right-2 bg-zinc-800 text-zinc-300 text-xs px-2 py-1 rounded hover:bg-zinc-700 focus:outline-none focus:ring"
+          >
+            Copy
+          </button>
+        </div>
+      </section>
+
+      <!-- Step 3: Import CSS -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 text-sky-400">Step 3: Import output.css in your HTML</h2>
+        <p class="text-zinc-300 mb-2">Use the generated CSS in your HTML like this:</p>
+        <div class="relative group">
+          <pre id="code3" class="bg-zinc-900 text-zinc-200 p-4 rounded-lg text-sm overflow-x-auto border border-zinc-800">&lt;link rel="stylesheet" href="output.css"&gt;</pre>
+          <button
+            onclick="copyCode('code3', this)"
+            class="absolute top-2 right-2 bg-zinc-800 text-zinc-300 text-xs px-2 py-1 rounded hover:bg-zinc-700 focus:outline-none focus:ring"
+          >
+            Copy
+          </button>
+        </div>
+      </section>
+
+      <!-- Plugin Support -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 text-sky-400">Plugin Support</h2>
+        <p class="text-zinc-300 mb-4">
+          Tailwind plugins like
+          <a
+            href="https://daisyui.com/docs/install/standalone/"
+            class="text-sky-400 hover:text-sky-300 underline underline-offset-2 transition"
+            >daisyUI</a
+          >
+          can be used with gotailwind, but currently require manual download and configuration.
+        </p>
+        <p class="text-zinc-400">
+          We’re exploring a future feature to support plugin integration automatically.
+        </p>
+      </section>
+
+      <!-- Notes -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-4 text-sky-400">Notes</h2>
+        <ul class="list-disc ml-6 space-y-2 text-zinc-300">
           <li>No need to install Node.js or Tailwind CLI separately</li>
           <li>Automatically downloads and uses the correct Tailwind binary</li>
           <li>Supports standard Tailwind CSS features and directives</li>
         </ul>
       </section>
     </main>
+
+    <footer class="mt-20 pb-10 text-center text-zinc-500 text-sm">
+      © 2025 gotailwind. All rights reserved.
+    </footer>
+
+    <script>
+      function copyCode(id, button) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          button.textContent = 'Copied!';
+          setTimeout(() => (button.textContent = 'Copy'), 2000);
+        });
+      }
+    </script>
   </body>
 </html>
