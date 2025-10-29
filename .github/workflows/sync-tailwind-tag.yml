@@ -1,37 +1,47 @@
 name: Sync TailwindCSS Release Tag
 
 on:
+  workflow_dispatch: # Allow manual triggering
   # schedule:
-    # - cron: '0 6 * * *' # Runs every day at 06:00 UTC
-  # Run manually for now (need to update the version in the binary also)
-  workflow_dispatch:    # Allow manual triggering
+  #   - cron: '0 6 * * *' # Optional: daily at 06:00 UTC
 
 jobs:
   sync-tag:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout current repo
         uses: actions/checkout@v4
 
-      - name: Fetch latest tag from tailwindcss
+      - name: Fetch latest tag from TailwindCSS
         id: get_latest_tailwind_tag
         run: |
           LATEST_TAG=$(curl -s https://api.github.com/repos/tailwindlabs/tailwindcss/releases/latest | jq -r .tag_name)
           echo "Latest TailwindCSS tag is $LATEST_TAG"
-          echo "tag=$LATEST_TAG" >> $GITHUB_OUTPUT
+          echo "tag=$LATEST_TAG" >> "$GITHUB_OUTPUT"
 
       - name: Fetch tags from this repo
         id: get_existing_tags
         run: |
           git fetch --tags
           EXISTING_TAG=$(git tag -l "${{ steps.get_latest_tailwind_tag.outputs.tag }}")
-          echo "existing=$EXISTING_TAG" >> $GITHUB_OUTPUT
+          echo "existing=$EXISTING_TAG" >> "$GITHUB_OUTPUT"
 
       - name: Create new tag if missing
         if: steps.get_existing_tags.outputs.existing == ''
         run: |
           NEW_TAG=${{ steps.get_latest_tailwind_tag.outputs.tag }}
+          echo "Creating new tag $NEW_TAG"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag "$NEW_TAG"
           git push origin "$NEW_TAG"
+
+      - name: Create GitHub Release
+        if: steps.get_existing_tags.outputs.existing == ''
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.get_latest_tailwind_tag.outputs.tag }}
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
