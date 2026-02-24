@@ -22,7 +22,7 @@ go get -tool github.com/hookenz/gotailwind/v4@latest
 
 Or a specific version of TailwindCSS:
 ```
-go get -tool github.com/hookenz/gotailwind/v4@v4.1.18
+go get -tool github.com/hookenz/gotailwind/v4@v4.2.0
 ```
 
 To run it:
@@ -56,7 +56,7 @@ i.e.
 
 Which means you can have different projects targetting different versions of TailwindCSS.
 
-Note: Versions of this tool prior to 4.1.6 do not work properly due to bug and broken go cache.  
+Note: Versions of this tool prior to 4.1.6 do not work properly due to bug and broken go cache.
 
 # Contributing
 Suggestions or improvements are more than welcome.
