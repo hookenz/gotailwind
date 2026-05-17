@@ -22,7 +22,7 @@ go get -tool github.com/hookenz/gotailwind/v4@latest
 
 Or a specific version of TailwindCSS:
 ```
-go get -tool github.com/hookenz/gotailwind/v4@v4.2.4
+go get -tool github.com/hookenz/gotailwind/v4@v4.3.0
 ```
 
 To run it:
