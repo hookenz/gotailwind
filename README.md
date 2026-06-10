@@ -32,7 +32,8 @@ go tool gotailwind
 
 # Demo
 
-https://github.com/user-attachments/assets/f540a315-a70b-49f0-843a-f35e7520d5d5
+<img width="800" height="450" alt="demo" src="https://github.com/user-attachments/assets/3400c46a-65c8-44b3-b67b-e39d713997ad" />
+
 
 
 # How does it work? 
