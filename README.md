@@ -42,10 +42,9 @@ binary that is downloaded and cached into a local cache folder.
 
 The GoTailwind version matches the TailwindCSS cli version.
 
-It has been tested under Linux and Windows. It should also work under mac although is currently untested. 
-Do let me know if it works or not.
+It works wherever go and tailwindcss can run.
 
-In linux the TailwindCSS cli is placed into a versioned directory beneath:
+In linux the TailwindCSS cli binary is placed into a versioned directory beneath:
 ```
 ~/.cache/gotailwind/
 ```
@@ -56,8 +55,6 @@ i.e.
 ```
 
 Which means you can have different projects targetting different versions of TailwindCSS.
-
-Note: Versions of this tool prior to 4.1.6 do not work properly due to bug and broken go cache.
 
 # Contributing
 Suggestions or improvements are more than welcome.
